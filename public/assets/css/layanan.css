@@ -1,0 +1,332 @@
+.btn-konsultasi {
+  background: var(--orange);
+  color: var(--white) !important;
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 13.5px;
+  font-family: 'Montserrat', sans-serif;
+  transition: background .3s, transform .3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Hero Badge, Title, Desc ─── */
+.layanan-cat-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px 14px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 16px;
+}
+
+.layanan-hero-title {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  max-width: 580px;
+}
+
+.layanan-hero-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 22px;
+}
+
+.btn-konsultasi:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+}
+
+/* ─── Section Title ─── */
+.section-title {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+/* ─── Divider ─── */
+.layanan-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.divider-line {
+  flex: 1;
+  max-width: 180px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--orange));
+}
+
+.divider-line:last-of-type {
+  background: linear-gradient(90deg, var(--orange), transparent);
+}
+
+.divider-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.divider-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.divider-label strong {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+/* ─── Video Section ─── */
+.video-section {
+  padding: 60px 0 40px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.video-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,.07);
+  transition: transform .3s, box-shadow .3s;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.video-card:hover .video-thumb img {
+  transform: scale(1.04);
+}
+
+/* ─── Overlay & Tombol Play YouTube ─── */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.25);
+  transition: background .2s;
+}
+
+.video-thumb:hover .video-overlay {
+  background: rgba(0,0,0,.4);
+}
+
+.yt-play-btn {
+  width: 68px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+  transition: transform .2s;
+}
+
+.video-thumb:hover .yt-play-btn {
+  transform: scale(1.1);
+}
+
+.yt-play-bg {
+  fill: #ff0000;
+  fill-opacity: 0.9;
+}
+
+.yt-play-icon {
+  fill: #ffffff;
+}
+
+/* ─── Layanan Section ─── */
+.layanan-section {
+  padding: 20px 0 80px;
+}
+
+/* ─── Layanan Grid ─── */
+.layanan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ─── Layanan Card ─── */
+.layanan-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,.07);
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.layanan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+
+.layanan-card-img {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background: #e8edf5;
+}
+
+.layanan-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.layanan-card:hover .layanan-card-img img {
+  transform: scale(1.05);
+}
+
+.layanan-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.layanan-card-body h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.layanan-card-body p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* ─── Card Button ─── */
+.layanan-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--orange);
+  color: var(--orange);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .25s, color .25s;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.layanan-card-btn:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* ─── Modal YouTube ─── */
+.yt-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.yt-modal-backdrop.active {
+  display: flex;
+}
+
+.yt-modal {
+  position: relative;
+  width: 90%;
+  max-width: 860px;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.yt-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.yt-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+/* ─── Responsive ─── */
+@media (max-width: 991px) {
+  .video-grid   { grid-template-columns: repeat(2, 1fr); }
+  .layanan-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .divider-label { font-size: 20px; }
+}
+
+@media (max-width: 576px) {
+  .video-grid   { grid-template-columns: 1fr; }
+  .layanan-grid { grid-template-columns: 1fr; }
+}
