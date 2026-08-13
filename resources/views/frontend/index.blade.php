@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SINERGI FLOWINDO — Flow Meter Industri</title>
+  <link rel="canonical" href="{{ url()->current() }}">
   <meta name="description" content="Flow meter berkualitas untuk kebutuhan industri">
 
   <link href="{{ asset('assets/img/logo.webp') }}" rel="icon">

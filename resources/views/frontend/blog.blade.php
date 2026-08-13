@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog - SINERGI FLOWINDO</title>
+  <link rel="canonical" href="{{ url()->current() }}">
 
   <link href="{{ asset('assets/img/logo.webp') }}" rel="icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
