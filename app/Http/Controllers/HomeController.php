@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Layanan;
 use App\Models\Produk;
+use App\Models\SlugHistory;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
@@ -29,7 +30,19 @@ class HomeController extends Controller
     public function produkDetail($slug)
     {
        
-    $produk = Produk::with('category')->where('slug', $slug)->firstOrFail();
+ $produk = Produk::with('category')->where('slug', $slug)->first();
+
+    if (!$produk) {
+        $history = SlugHistory::where('old_slug', $slug)
+            ->where('sluggable_type', Produk::class)
+            ->first();
+
+        if ($history && $history->sluggable) {
+            return redirect()->route('produk.detail', $history->sluggable->slug, 301);
+        }
+
+        abort(404);
+    }
     $produkTerkait = Produk::with('category')
         ->where('status_aktif', 1)
         ->where('category_id', $produk->category_id)
