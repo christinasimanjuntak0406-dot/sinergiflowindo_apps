@@ -41,6 +41,15 @@ class HomeController extends Controller
             return redirect()->route('produk.detail', $history->sluggable->slug, 301);
         }
 
+        $normalizedInput = preg_replace("/[^a-z0-9]/", "", strtolower($slug));
+        $candidate = Produk::where("status_aktif", 1)->get(["id", "slug"])->first(function ($item) use ($normalizedInput) {
+            return preg_replace("/[^a-z0-9]/", "", strtolower($item->slug)) === $normalizedInput;
+        });
+        if ($candidate) {
+            SlugHistory::firstOrCreate(["old_slug" => $slug, "sluggable_type" => Produk::class, "sluggable_id" => $candidate->id]);
+            return redirect()->route("produk.detail", $candidate->slug, 301);
+        }
+
         abort(404);
     }
     $produkTerkait = Produk::with('category')
