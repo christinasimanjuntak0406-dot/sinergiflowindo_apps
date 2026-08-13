@@ -60,3 +60,35 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::delete('/blog/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
 });
+Route::get('/sitemap.xml', function () {
+    $produk = \App\Models\Produk::where('status_aktif', 1)->get();
+    return response()->view('sitemap', compact('produk'))
+        ->header('Content-Type', 'application/xml');
+});
+
+/*
+|--------------------------------------------------------------------------
+| FALLBACK - Redirect slug lama yang sudah 404 ke slug baru
+|--------------------------------------------------------------------------
+*/
+Route::fallback(function () {
+    $slug = basename(trim(request()->path(), '/'));
+
+    $history = \App\Models\SlugHistory::where('old_slug', $slug)->latest()->first();
+
+    if ($history && $history->sluggable) {
+        $model = $history->sluggable;
+
+        $url = match (get_class($model)) {
+            \App\Models\Blog::class   => route('blog.detail', $model->slug),
+            \App\Models\Produk::class => route('produk.detail', $model->slug),
+            default       => null,
+        };
+
+        if ($url) {
+            return redirect($url, 301);
+        }
+    }
+
+    abort(404);
+});
